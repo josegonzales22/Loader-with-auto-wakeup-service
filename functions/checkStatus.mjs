@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
     const url = 'https://josegonz.netlify.app/'; // URL de tu página de destino
 
     try {
@@ -31,4 +31,4 @@ exports.handler = async function(event, context) {
             }
         };
     }
-};
+}
