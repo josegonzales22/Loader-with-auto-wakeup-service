@@ -1,18 +1,16 @@
-const appUrl = "https://josegonz.netlify.app";
-const checkInterval = 5000;
-
-function checkAppStatus() {
-  fetch(appUrl , { mode: 'no-cors' })
-    .then((response) => {
-      if (response.ok) {
-        window.location.href = appUrl;
-      } else {
-        throw new Error("App is not available yet");
-      }
-    })
-    .catch(() => {
-      setTimeout(checkAppStatus, checkInterval);
-    });
+async function checkStatus() {
+    try {
+        const response = await fetch('/.netlify/functions/checkStatus');
+        const data = await response.json();
+        if (data.status === 'success') {
+            window.location.href = 'https://josegonz.netlify.app/'; // Redirige a la página de destino
+        } else {
+            setTimeout(checkStatus, 5000); // Reintenta después de 5 segundos
+        }
+    } catch (error) {
+        console.error('Error checking status:', error);
+        setTimeout(checkStatus, 5000); // Reintenta después de 5 segundos
+    }
 }
 
-checkAppStatus();
+window.onload = checkStatus;
