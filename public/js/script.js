@@ -2,7 +2,7 @@ const appUrl = "https://josegonz.netlify.app";
 const checkInterval = 5000;
 
 function checkAppStatus() {
-  fetch(appUrl)
+  fetch(appUrl , { mode: 'no-cors' })
     .then((response) => {
       if (response.ok) {
         window.location.href = appUrl;
