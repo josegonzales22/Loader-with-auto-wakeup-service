@@ -2,15 +2,14 @@ async function checkStatus() {
     try {
         const response = await fetch('/.netlify/functions/checkStatus');
         const data = await response.json();
-        if (data.status === 'success') {
-            window.location.href = 'https://josegonz.netlify.app/'; // Redirige a la página de destino
+        if (data.status === 'success' && data.redirectUrl) {
+            window.location.href = data.redirectUrl;
         } else {
-            setTimeout(checkStatus, 5000); // Reintenta después de 5 segundos
+            setTimeout(checkStatus, 5000);
         }
     } catch (error) {
         console.error('Error checking status:', error);
-        setTimeout(checkStatus, 5000); // Reintenta después de 5 segundos
+        setTimeout(checkStatus, 5000);
     }
 }
-
 window.onload = checkStatus;

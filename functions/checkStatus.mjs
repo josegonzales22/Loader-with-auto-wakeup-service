@@ -1,14 +1,25 @@
 import fetch from 'node-fetch';
 
 export async function handler(event, context) {
-    const url = 'https://josegonz.netlify.app/'; // URL de tu página de destino
+    // Accede a la variable de entorno
+    const url = process.env.TARGET_URL;
+
+    if (!url) {
+        return {
+            statusCode: 500,
+            body: JSON.stringify({ status: 'error', message: 'TARGET_URL is not defined' }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+    }
 
     try {
         const response = await fetch(url, { method: 'GET' });
         if (response.ok) {
             return {
                 statusCode: 200,
-                body: JSON.stringify({ status: 'success' }),
+                body: JSON.stringify({ status: 'success', redirectUrl: url }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
