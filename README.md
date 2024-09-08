@@ -1,26 +1,18 @@
-# Astro Landing Page <picture><source media="(prefers-color-scheme: dark)" srcset="https://astro.build/assets/press/astro-icon-light.png"><source media="(prefers-color-scheme: light)" srcset="https://astro.build/assets/press/astro-icon-dark.png"><img align="right" valign="center" height="79" width="63" src="https://astro.build/assets/press/astro-icon-dark.png" alt="Astro logo" /></picture>
-
-> An Astro + Tailwind CSS example/template for landing pages.
-
-<div align="center">
-
-[![Built with Astro](https://astro.badg.es/v2/built-with-astro/small.svg)](https://astro.build)
-
+# Loader with auto wake-up service
+<div align="start">
+  <p>This project is a web loader application designed to make automatic GET requests to any web page. Its main objective is to check and wake up web services that may be inactive or asleep due to resource saving policies in hosting services. It is ideal for projects that require to automatically start a web service, keeping the user informed through a visual loader while the service is restarted. The project makes repeated requests at configurable time intervals, checking the status of the service until it is fully active. Once the web service is available, the loader redirects the user to the destination page.
+</p>
 </div>
 
-![Screenshots of Astro Landing Page](screenshots.jpg)
+## Important
+It's very important that you set the target environment variable to netlify, this project does not use .env files, only netlify environment variables.
 
-## Features
+| Variable                | Value                                            |
+| :---------------------- | :----------------------------------------------- |
+| TARGET_URL              | Your url to wake up                              |
 
-- 💨 Tailwind CSS for styling
-- 🎨 Themeable
-  - CSS variables are defined in `src/styles/theme.css` and mapped to Tailwind classes (`tailwind.config.cjs`)
-- 🌙 Dark mode
-- 📱 Responsive (layout, images, typography)
-- ♿ Accessible (as measured by https://web.dev/measure/)
-- 🔎 SEO-enabled (as measured by https://web.dev/measure/)
-- 🔗 Open Graph tags for social media sharing
-- 💅 [Prettier](https://prettier.io/) setup for both [Astro](https://github.com/withastro/prettier-plugin-astro) and [Tailwind](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
+If you need to modify the page title or any else, you can modify the content.json in /public/json/content.json
+<p>Note: The languages available is english and spanish.</p>
 
 ## Commands
 
@@ -37,8 +29,12 @@
 
 ## Credits
 
-- astronaut image
-  - source: https://github.com/withastro/astro-og-image; note: this repo is not available anymore
-- moon image
-  - source: https://unsplash.com/@nasa
-- other than that, a lot of material (showcase data, copy) was taken from official Astro sources, in particular https://astro.build/blog/introducing-astro/ and https://github.com/withastro/astro.build
+- Jose Gonzales
+  - Linkedin: https://josegonz.netlify.app/
+  - Github: https://github.com/josegonzales22
+- Astro
+  - source: https://astro.build
+- Tailwind CSS
+  - source: https://tailwindcss.com/
+- Netlify Hosting
+  - source: https://www.netlify.com/
