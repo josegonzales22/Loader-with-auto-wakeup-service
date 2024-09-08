@@ -1,21 +1,77 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<main>
-		<div class="message">Loading, please wait...</div>
-	</main>
+  <main>
+    <div
+      class="fixed z-50 inset-0 overflow-y-auto h-full w-full flex items-center justify-center bg-mybcolor"
+    >
+      <div class="flex flex-col items-center">
+        <div class="loader mb-4">
+          <div class="circle"></div>
+        </div>
+        <span id="text-loader" class="text-mygray font-semibold text-3xl"></span>
+		<span id="note" class="text-mygray font-normal text-sm my-2 text-center"></span>
+      </div>
+    </div>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  :root {
+    --mygreen: #58d58a;
+    --mystronggreen: #19f370;
+    --myblue: #4c94ff;
+    --mystrongblue: #1573ff;
+  }
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  .loader {
+    background: transparent;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ccc;
+    position: absolute;
+    border-radius: 50%;
+    animation: circle14512 2s linear infinite;
+  }
+  .circle::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--mygreen);
+    box-shadow:
+      0 0 20px var(--mygreen),
+      0 0 60px var(--mygreen);
+  }
+  @keyframes circle14512 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 </style>

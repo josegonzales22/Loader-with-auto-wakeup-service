@@ -1,0 +1,12 @@
+{
+  "es": {
+    "page-title": "Cargando Proyecto | Jose Gonzales",
+    "text-loader": "Cargando",
+    "note": "Nota: Puede demorar en cargar un poco debido a que se esta levantando el servidor, por favor espere..."
+  },
+  "en": {
+    "page-title": "Loading Project | Jose Gonzales",
+    "text-loader": "Loading",
+    "note": "Note: It may take a while to load because the server is starting up, wait please..."
+  }
+}

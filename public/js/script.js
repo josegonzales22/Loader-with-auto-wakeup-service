@@ -5,11 +5,11 @@ async function checkStatus() {
         if (data.status === 'success' && data.redirectUrl) {
             window.location.href = data.redirectUrl;
         } else {
-            setTimeout(checkStatus, 5000);
+            setTimeout(checkStatus, 10000);
         }
     } catch (error) {
         console.error('Error checking status:', error);
-        setTimeout(checkStatus, 5000);
+        setTimeout(checkStatus, 10000);
     }
 }
 window.onload = checkStatus;
